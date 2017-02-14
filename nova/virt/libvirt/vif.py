@@ -444,6 +444,9 @@ class LibvirtGenericVIFDriver(object):
         designer.set_vif_bandwidth_config(conf, inst_type)
         return conf
 
+    def _set_config_VIFGeneric(self, instance, vif, conf, host=None):
+        designer.set_vif_host_backend_ethernet_config(conf, vif.vif_name)
+
     def _set_config_VIFBridge(self, instance, vif, conf, host=None):
         conf.net_type = "bridge"
         conf.source_dev = vif.bridge_name

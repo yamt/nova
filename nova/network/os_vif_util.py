@@ -374,7 +374,11 @@ def _nova_to_osvif_vif_ib_hostdev(vif):
 
 # VIF_TYPE_MIDONET = 'midonet'
 def _nova_to_osvif_vif_midonet(vif):
-    raise NotImplementedError()
+    return _get_vif_instance(
+        vif,
+        objects.vif.VIFGeneric,
+        plugin="midonet",
+        vif_name=_get_vif_name(vif))
 
 
 # VIF_TYPE_VROUTER = 'vrouter'
